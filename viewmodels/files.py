@@ -24,18 +24,18 @@ def get_file_with_id(id, return_object=False):
 
     return file if return_object else file.toJSON()
 
-def save_file(exam, path, id=None, return_object=False):
+def save_file(game, path, gameId=None, return_object=False):
     """
     Set return_object to True if you want to return a 
     model instance instead of JSON
     """
-    if id != None:
-        file = get_file_with_id(id, return_object=True)
-        file.exam, file.path = exam, path
+    if gameId != None:
+        file = get_file_with_id(gameId, return_object=True)
+        file.game, file.path = game, path
 
     else:
         file = File(
-            exam=exam, path=path
+            game=game, path=path
         )
 
     file.save()
